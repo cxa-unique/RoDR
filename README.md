@@ -16,7 +16,7 @@ activate it `conda activate rodr`, and then install the following packages:
 > and you can refer to `download_raw_data.sh` script to download the raw data, which will be
 > saved in the `data/msmarco_passage/raw` folder.
 
-**Dev Query**: all query variation sets for `Dev` set used in our paper are provided 
+**Dev Query**: all query variation sets for MS MARCO small Dev set used in our paper are provided 
 in the `data/msmarco_passage/query/dev` folder. You can directly use these query variation 
 sets to test the robustness of your DR model, and you can also use `query_variation_generation.py` 
 script to generate a query variation set by yourself:
@@ -38,8 +38,8 @@ not applicable. Besides, before using the `query_variation_generation.py` script
 
 **Train Query:** we also need to generate variations for train queries to enhance the DR model.
 Similar to Dev set, we first generate eight variation sets for the train query set, and then merge
-them uniformly to obtain the final train query variation set (our generated one is available in the 
-`data/msmarco_passage/query/train` folder), which is used to insert variations 
+them uniformly to obtain the final train query variation set (our generated train query variation file
+ is available in the `data/msmarco_passage/query/train` folder), which is used to insert variations 
 into the training data, by adding a `'query_variation'` field into each training examples.
 You can refer to `construct_train_query_variations.py` script after you obtain train variation sets 
 and original training data.
@@ -61,16 +61,16 @@ Specifically, we update the negatives in the `OQ` training data by sampling from
 candidates returned by `DR_OQ` model, and you can refer to `bulid_train_hn.py` script, 
 wherein `--query_variation` requires the train query variation file.
 Certainly, you can insert the variation version of train queries after constructing 
-the training data, like `QV`, using `construct_training_data_with_variations` function in 
+the training data, like `QV`, using `construct_training_data_with_variations` function in the 
 `construct_train_query_variations.py` script.
 
-After that, you can refer to `train_rodr_dpr.sh` script, to train the `RoDR w/ DR_OQ` model
+After that, you can refer to `train_rodr_dpr.sh` script, to train a `RoDR w/ DR_OQ` model
 on top of the `DR_OQ` model.
 
 ## Retrieval
 After training a DR model, we can use it to carry out dense retrieval as follows:
 1. Tokenizing: using `tokenize_passages.py` and `tokenize_queries.py` scripts to tokenize 
-all passages in the corpus, and the dev queries and query variations.
+all passages in the corpus, the original queries and query variations.
 2. Encoding and Retrieval: refer to `encode_retrieve_dpr.sh` to first encode passages and queries
 into vectors, and then use Faiss to index and retrieve.
 
@@ -79,41 +79,51 @@ As for zero-shot retrieval on ANTIQUE, all DR models are only trained on MS MARC
 
 ## Resources
 1. Query variations: 
-    * Passage-Dev: available in the `msmarco_passage/query` folder, for both `dev` and `train` query sets.
-    * Document-Dev: available in the `msmarco_doc/query` folder, for both `dev` and `train` query sets.
-    * ANTIQUE: available in the `antique/query` folder, which are collected from [manually validated query variations](https://github.com/Guzpenha/query_variation_generators).
+    * Passage-Dev: available in the `data/msmarco_passage/query` folder, for both `dev` and `train` query sets.
+    * Document-Dev: available in the `data/msmarco_doc/query` folder, for both `dev` and `train` query sets.
+    * ANTIQUE: available in the `data/antique/query` folder, which are collected from 
+    [manually validated query variations](https://github.com/Guzpenha/query_variation_generators).
 
 2. Models:
 
-    | Dataset | DR_OQ | DR_QV | DR_OQ->QV | RoDR w/ OQ |
-    |------------------|-----|-----|-----|-----|
-    | MS MARCO Passage |  |  |  |  | 
-    | MS MARCO Document |  |  |  |  |
+    | MS MARCO Passage | MS MARCO Document |
+    |------------|-----------|
+    | [DR_OQ]()  | [DR_OQ]() |
+    | [DR_QV]()  | [DR_QV]() |
+    | [DR_OQ->QV]()  | [DR_OQ->QV]() |
+    | [RoDR w/ DR_OQ]()  | [RoDR w/ DR_OQ]() |
 
 3. Retrieval results:
 
-    | Dataset | DR_OQ | DR_QV | DR_OQ->QV | RoDR w/ OQ | 
+    | Dataset | DR_OQ | DR_QV | DR_OQ->QV | RoDR w/ DR_OQ | 
     |----------|-----|-----|-----|-----|
-    | Passage-Dev |  |  |  |  | 
-    | Document-Dev |  |  |  |  |
-    | ANTIQUE |  |  |  |  | 
+    | Passage-Dev | [Download]() | [Download]() | [Download]() | [Download]() | 
+    | Document-Dev | [Download]() | [Download]() | [Download]() | [Download]() |
+    | ANTIQUE | [Download]() | [Download]() | [Download]() | [Download]() |
 
-## Plugging into existing DR models
+## RoDR on existing DR models
 If you want to apply RoDR to publicly available DR models, such as ANCE, TAS-Balanced and ADORE+STAR, which are enhanced
-in this paper, you need to make some minor changes in the model level, please refer to [here]() for more detailed instruction.
-Herein, we only provide the model checkpoints and retrieval results.
+in this paper, you need to make some minor changes in the model level, such as adding the pooler in ANCE, and using 
+separate query and passage encoders.
+Herein, we provide the model checkpoints and retrieval results for the reproducibility of our experiments and other research uses.
 1. Models:
 
-    | ANCE | RoDR w/ ANCE | TAS-Balanced | RoDR w/ TAS-Balanced | ADORE+STAR | RoDR w/ ADORE+STAR | 
-    |-----|-----|-----|-----|-----|-----|
-    |  |  |  |  | 
+    | Original | RoDR |
+    |-----|-----|
+    | [ANCE]() | [RoDR w/ ANCE]() |
+    | [TAS-Balanced]() | [RoDR w/ TAS-Balanced]() |
+    | [ADORE+STAR]() | [RoDR w/ ADORE+STAR]() |
 
 2. Retrieval results:
 
-    | Dataset | ANCE | RoDR w/ ANCE | TAS-Balanced | RoDR w/ TAS-Balanced | ADORE+STAR | RoDR w/ ADORE+STAR |
-    |----------|-----|-----|-----|-----|-----|-----|
-    | Passage-Dev |  |  |  |  | 
-    | ANTIQUE |  |  |  |  | 
+    | Model | Passage-Dev | ANTIQUE |
+    |----------|-----|-----|
+    | ANCE | [Download]() | [Download]() |
+    | RoDR w/ ANCE | [Download]() | [Download]() |
+    | TAS-Balanced | [Download]() | [Download]() |
+    | RoDR w/ TAS-Balanced | [Download]() | [Download]() |
+    | ADORE+STAR | [Download]() | [Download]() |
+    | RoDR w/ ADORE+STAR | [Download]() | [Download]() |
     
 ## Citation
 If you find our paper/resources useful, please cite:

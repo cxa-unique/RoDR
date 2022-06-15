@@ -5,13 +5,13 @@ This repository contains the code and resources for our paper:
 - Xuanang Chen, Jian Luo, Ben He, Le Sun, Yingfei Sun. 
 Towards Robust Dense Retrieval via Local Ranking Alignment. In *IJCAI 2022*.
 
-##Installation
+## Installation
 Our code is developed based on [Tevatron](https://github.com/texttron/tevatron) toolkit.
 We recommend you to create a new conda environment `conda create -n rodr python=3.7`, 
 activate it `conda activate rodr`, and then install the following packages:
 `torch==1.8.1`, `faiss-cpu==1.7.1`, `transformers==4.9.2`, `datasets==1.11.0`.
 
-##Query Variations
+## Query Variations
 > Note: In this repo, we mainly take MS MARCO passage ranking dataset for example, 
 > and you can refer to `get_raw_data.sh` script to download the raw data saved in 
 > the `msmarco_passage/raw` folder.
@@ -39,7 +39,7 @@ them together to obtain the final train query variation set, which is used to in
 into the training data by adding a `'query_variation'` field into each training examples.
 You can refer to `construct_train_query_variations.py` script after you obtain train variation sets and original training data.
 
-##Training
+## Training
 **Standard DR:** To obtain a standard DR model, like `DR_OQ` in our paper, we need to
 construct the training data first:
 - `OQ`: the training data with original train queries using `bulid_train.py` script.

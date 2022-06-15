@@ -5,6 +5,8 @@ This repository contains the code and resources for our paper:
 - Xuanang Chen, Jian Luo, Ben He, Le Sun, Yingfei Sun. 
 Towards Robust Dense Retrieval via Local Ranking Alignment. In *IJCAI 2022*.
 
+![image](https://github.com/cxa-unique/RoDR/blob/main/rodr_framework.png)
+
 ## Installation
 Our code is developed based on [Tevatron](https://github.com/texttron/tevatron) DR training toolkit.
 We recommend you to create a new conda environment `conda create -n rodr python=3.7`, 

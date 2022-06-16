@@ -112,9 +112,9 @@ python variations_avg_tt_test.py qrels run_dir1 run_dir2 fusion
 
     | Dataset | DR_OQ | RoDR w/ DR_OQ | 
     |----------|-----|-----|
-    | Passage-Dev | [Download]() | [Download]() |
-    | Document-Dev | [Download]() | [Download]() |
-    | ANTIQUE | [Download]() | [Download]() |
+    | Passage-Dev | [Download](https://drive.google.com/file/d/16Ic9-FloPDUvlpAl-euNdmDznLCLAqh2/view?usp=sharing) | [Download](https://drive.google.com/file/d/1gFnUwfvcYgvBIwvpxcm2W6Ge6lbU6NcA/view?usp=sharing) |
+    | Document-Dev | [Download](https://drive.google.com/file/d/1kyf1t96k7UjJXD16Jj1hroC7TP75_u0S/view?usp=sharing) | [Download](https://drive.google.com/file/d/1E1KOrbsGXFpyhKgCwyVHyNlYGRQVOwlg/view?usp=sharing) |
+    | ANTIQUE | [Download](https://drive.google.com/file/d/1NbCn31bRu0oSACrqOWG6pBFI2qCiK56z/view?usp=sharing) | [Download](https://drive.google.com/file/d/13wpHh_Hsu0tQCm4OzPls9qqfjC72VB2u/view?usp=sharing) |
     
     <sup>*</sup> Due to the large size of run files on Passage-Dev, we only provide the run files of 
     `DR_OQ` and `RoDR w/ DR_OQ` models. If you want obtain the run files of `DR_QV` and `DR_OQ->QV` models, 
@@ -137,9 +137,9 @@ Herein, we provide the model checkpoints and retrieval files for the reproducibi
 
     | Model | Passage-Dev | ANTIQUE |
     |----------|-----|-----|
-    | RoDR w/ ANCE | [Download]() | [Download]() |
-    | RoDR w/ TAS-Balanced | [Download]() | [Download]() |
-    | RoDR w/ ADORE+STAR | [Download]() | [Download]() |
+    | RoDR w/ ANCE | [Download](https://drive.google.com/file/d/1zfc7ss4MHqAX7-y-8ZV7dy3ZJoIwC9FH/view?usp=sharing) | [Download](https://drive.google.com/file/d/171zLsLGqUeQxWa-eBK76QuOBk0ZTpUzE/view?usp=sharing) |
+    | RoDR w/ TAS-Balanced | [Download](https://drive.google.com/file/d/1Aq25MQv1YQqOSm4GOybfJuCgDHLyBOI-/view?usp=sharing) | [Download](https://drive.google.com/file/d/1gIu5AcmtPBdjvfu7yUQ8WGzlk0dyTAVv/view?usp=sharing) |
+    | RoDR w/ ADORE+STAR | [Download](https://drive.google.com/file/d/16bUYB91gSlPDH1sdNTYI75WkVgmYgyXP/view?usp=sharing) | [Download](https://drive.google.com/file/d/1884f88D-58JJGZQ3j8BNeeh-akXaH1w8/view?usp=sharing) |
     
     <sup>**</sup> Due to the large size of run files on Passage-Dev, we only provide the run files of RoDR models.
     If you want obtain the run files of original existing DR models, please feel free to contact us. 

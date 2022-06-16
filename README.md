@@ -91,7 +91,6 @@ python variations_avg_tt_test.py qrels run_file1 run_file2
 # for all run files
 python variations_avg_tt_test.py qrels run_dir1 run_dir2 fusion
 ```
-
 ## Resources
 1. Query variations: 
     * Passage-Dev: available in the `data/msmarco_passage/query` folder, for both `dev` and `train` query sets.

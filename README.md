@@ -82,15 +82,16 @@ into vectors, and then use [Faiss](https://github.com/facebookresearch/faiss) to
 As for zero-shot retrieval on ANTIQUE, all DR models are only trained on MS MARCO passage dataset,
  please refer to `run_antique_zeroshot.sh` script.
 
-For evaluation on MS MARCO passage dataset, such as MRR@10, Recall, and statistical t-test, 
-we provide `variations_avg_tt_test.py` script to compute all paired run files from two waited 
-compared DR models. You can use it like this: 
+For the evaluation on MS MARCO passage ranking dataset, such as MRR@10, Recall, and statistical t-test, 
+we provide `variations_avg_tt_test.py` script to compute the metrics for all paired run files 
+from two DR models waiting for comparison. You can use it like this: 
 ```
 # for single run file
 python variations_avg_tt_test.py qrels run_file1 run_file2
 # for all run files
 python variations_avg_tt_test.py qrels run_dir1 run_dir2 fusion
 ```
+
 ## Resources
 1. Query variations: 
     * Passage-Dev: available in the `data/msmarco_passage/query` folder, for both `dev` and `train` query sets.

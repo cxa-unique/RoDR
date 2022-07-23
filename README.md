@@ -3,7 +3,7 @@
 This repository contains the code and resources for our paper:
 
 - Xuanang Chen, Jian Luo, Ben He, Le Sun, Yingfei Sun. 
-Towards Robust Dense Retrieval via Local Ranking Alignment. In *IJCAI 2022*.
+[Towards Robust Dense Retrieval via Local Ranking Alignment](https://www.ijcai.org/proceedings/2022/0275.pdf). In *IJCAI 2022*.
 
 ![image](https://github.com/cxa-unique/RoDR/blob/main/rodr_framework.png)
 
@@ -147,14 +147,17 @@ Herein, we provide the model checkpoints and retrieval files for the reproducibi
 ## Citation
 If you find our paper/resources useful, please cite:
 ```
-@inproceedings{Chen2022_IJCAI,
- author = {Xuanang Chen and
-           Jian Luo and
-           Ben He and
-           Le Sun and
-           Yingfei Sun},
- title = {Towards Robust Dense Retrieval via Local Ranking Alignment},
- booktitle = {IJCAI 2022},
- year = {2022},
+@inproceedings{chen_ijcai2022-275,
+  title     = {Towards Robust Dense Retrieval via Local Ranking Alignment},
+  author    = {Xuanang Chen and
+               Jian Luo and
+               Ben He and
+               Le Sun and
+               Yingfei Sun},
+  booktitle = {Proceedings of the Thirty-First International Joint Conference on
+               Artificial Intelligence, {IJCAI-22}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  pages     = {1980--1986},
+  year      = {2022}
 }
 ```
